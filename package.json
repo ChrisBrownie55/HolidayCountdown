@@ -1,0 +1,20 @@
+{
+  "name": "holiday-countdown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "holiday-countdown.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^22.3.0"
+  },
+  "Quokka": {
+    "plugins": [
+      "jsdom-quokka-plugin"
+    ]
+  }
+}
