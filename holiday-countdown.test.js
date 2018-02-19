@@ -36,4 +36,3 @@ it('diffTime absolute value', () =>
 it('getFullDays', () =>
     expect(hc.getFullDays(1000*60*60*24*3)).toBe(3)
 )
-
