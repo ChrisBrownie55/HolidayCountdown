@@ -78,19 +78,19 @@ function getThanksgiving(year) {
 }
 
 const holidays = {
-    'christmas': () => daysUntil(12, 25),
-    'easter': () => {
+    'Christmas': () => daysUntil(12, 25),
+    'Easter': () => {
         const day = getEaster(thisYear())
         if (isPast(...day))
             return daysUntil(...getEaster(thisYear() + 1))
          
          return daysUntil(...day)
     },
-    'valentines': () => daysUntil(2, 14),
-    'halloween': () => daysUntil(10, 31),
-    'saint patrick\'s': () => daysUntil(3, 17),
-    'new year\'s eve': () => daysUntil(12, 31),
-    'thanksgiving': () => {
+    'Valentines': () => daysUntil(2, 14),
+    'Halloween': () => daysUntil(10, 31),
+    'Saint Patrick\'s Day': () => daysUntil(3, 17),
+    'New Year\'s Eve': () => daysUntil(12, 31),
+    'Thanksgiving': () => {
         const date = getThanksgiving(thisYear())
         if (isPast(getMonth(date), getDay(date)))
             return diffDaysNow(getThanksgiving(thisYear() + 1))
@@ -98,5 +98,12 @@ const holidays = {
          return diffDaysNow(date)
     }
 }
-if (window['module'])
+
+let holidayDays = {}
+
+Object.keys(holidays).forEach(key => holidayDays[key] = new Date((new Date()).getTime() + (holidays[key]() * 1000 * 60 * 60 * 24)).toLocaleString('en-us', {month:'long',day:'numeric', year: 'numeric'}))
+
+if (window['module']) {
     module.exports.holidays = holidays
+    module.exports.holidayDays = holidayDays
+}
