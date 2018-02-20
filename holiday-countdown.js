@@ -94,14 +94,30 @@ const holidays = {
         const date = getThanksgiving(thisYear())
         if (isPast(getMonth(date), getDay(date)))
             return diffDaysNow(getThanksgiving(thisYear() + 1))
-         
+
          return diffDaysNow(date)
     }
 }
 
 let holidayDays = {}
 
-Object.keys(holidays).forEach(key => holidayDays[key] = new Date((new Date()).getTime() + (holidays[key]() * 1000 * 60 * 60 * 24)).toLocaleString('en-us', {month:'long',day:'numeric', year: 'numeric'}))
+Object.keys(holidays).forEach(key => holidayDays[key] = new Date((new Date()).getTime() + ((holidays[key]() + 2) * 1000 * 60 * 60 * 24)).toLocaleString('en-us', {month:'long', day:'numeric', year: 'numeric'}))
 
 module.exports.holidays = holidays
 module.exports.holidayDays = holidayDays
+module.exports.getEaster = getEaster
+module.exports.getThanksgiving = getThanksgiving
+module.exports.daysUntil = daysUntil
+module.exports.diffDaysNow = diffDaysNow
+module.exports.diffDays = diffDays
+module.exports.getFullDays = getFullDays
+module.exports.diffTimeNow = diffTimeNow
+module.exports.diffTime = diffTime
+module.exports.nextOccurrence = nextOccurrence
+module.exports.isPast = isPast
+module.exports.thisDay = thisDay
+module.exports.getDay = getDay
+module.exports.thisMonth = thisMonth
+module.exports.getMonth = getMonth
+module.exports.thisYear = thisYear
+module.exports.getYear = getYear
