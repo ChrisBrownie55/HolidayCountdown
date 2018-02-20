@@ -103,7 +103,5 @@ let holidayDays = {}
 
 Object.keys(holidays).forEach(key => holidayDays[key] = new Date((new Date()).getTime() + (holidays[key]() * 1000 * 60 * 60 * 24)).toLocaleString('en-us', {month:'long',day:'numeric', year: 'numeric'}))
 
-if (window['module']) {
-    module.exports.holidays = holidays
-    module.exports.holidayDays = holidayDays
-}
+module.exports.holidays = holidays
+module.exports.holidayDays = holidayDays
