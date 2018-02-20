@@ -98,10 +98,12 @@ function toTimeString(month, day, year=thisYear()) {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     return `${months[month - 1]} ${day}, ${year !== null ? year : ''}`
 }
+module.exports.toTimeString = toTimeString
 
 function toTimeStringYearPast(month, day) {
     return toTimeString(month, day, yearPast(month, day))
 }
+module.exports.toTimeStringYearPast = toTimeStringYearPast
 
 function getHoliday(month, day) {
     return {
@@ -109,6 +111,7 @@ function getHoliday(month, day) {
         date: () => toTimeStringYearPast(month, day)
     }
 }
+module.exports.getHoliday = getHoliday
 
 const holidays = {
     'Christmas': getHoliday(12, 25),
