@@ -36,3 +36,27 @@ it('diffTime absolute value', () =>
 it('getFullDays', () =>
     expect(hc.getFullDays(1000*60*60*24*3)).toBe(3)
 )
+
+it('holidayDays Christmas', () =>
+    expect(hc.holidays.Christmas.date()).toBe('December 25, 2018')
+)
+
+it('holidayDays Halloween', () =>
+    expect(hc.holidays.Halloween.date()).toBe('October 31, 2018')
+)
+
+it('holidayDays Valentines', () =>
+    expect(hc.holidays.Valentines.date()).toBe('February 14, 2019')
+)
+
+it('holidays Christmas', () =>
+    expect(hc.holidays.Christmas.days()).toBe(308)
+)
+
+it('holidays Valentines', () =>
+    expect(hc.holidays.Valentines.days()).toBe(359)
+)
+
+it('holidays Thanksgiving', () =>
+    expect(hc.holidays.Thanksgiving.days()).toBe(275)
+)
